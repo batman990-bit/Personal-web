@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE BATMAN // PERSONAL ACCESS TERMINAL</title>
+    <title>BATMAN'S PERSONAL WEB</title>
     <style>
-        /* BASE VISUAL THEME (The Batcave Terminal) */
+        /* SMOOTH SCROLLING FOR THE WHOLE PAGE */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* BASE VISUAL THEME (Deep Space Terminal) */
         body {
-            /* Pitch black background */
-            background-color: #000000;
-            /* Cool, light-grey text that is easy to read */
-            color: #c5c6c7;
-            /* Modern, technical font */
+            /* Deep cosmic blue gradient background that stays fixed */
+            background: linear-gradient(to bottom, #020111, #131862);
+            background-attachment: fixed;
+            color: #e0e6ed; /* Starlight white text */
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 30px;
@@ -23,83 +27,120 @@
             margin: auto;
         }
 
-        /* HEADER & SURPRISE LOGO (Glowing Bat-Signal Banner) */
+        /* HEADER BANNER (Command Deck) */
         .terminal-header {
-            background-color: #1a1a1d; /* Slightly lighter dark-grey for banner */
+            background-color: rgba(10, 15, 36, 0.8);
             text-align: center;
             padding: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border-radius: 8px;
-            /* Soft, glowing yellow under-shadow */
-            border-bottom: 4px solid #ffcc00;
-            box-shadow: 0 6px 18px rgba(255, 204, 0, 0.4);
+            /* Glowing Neon Cyan bottom border */
+            border-bottom: 4px solid #00f3ff;
+            box-shadow: 0 6px 20px rgba(0, 243, 255, 0.3);
         }
 
         h1 {
-            color: #ffcc00; /* Bat Yellow */
+            color: #00f3ff; /* Neon Cyan */
             font-size: 2.8em;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 5px;
             margin: 0;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
         }
 
-        .header-subtext {
-            color: #ffffff;
-            opacity: 0.8;
-            font-style: italic;
-            margin-top: 10px;
+        /* NAVIGATION MENU & BUTTON STYLING */
+        .nav-menu {
+            display: flex; /* Lines the buttons up in a row */
+            justify-content: center; /* Centers them on the screen */
+            gap: 20px; /* Space between each button */
+            margin-bottom: 40px;
         }
 
-        /* THE 3 CATEGORY SECTIONS (Glowing Console Boxes) */
+        .nav-button {
+            text-decoration: none; /* Removes the default blue underline from links */
+            color: #00f3ff; /* Neon cyan text */
+            border: 2px solid #00f3ff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            background-color: rgba(10, 15, 36, 0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
+        /* Hover Effect: Buttons light up when you point at them */
+        .nav-button:hover {
+            background-color: #00f3ff;
+            color: #020111; /* Dark text on bright background */
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.8);
+        }
+
+        /* THE 3 CATEGORY SECTIONS (Hologram Consoles) */
         .section-panel {
-            background-color: #1a1a1d;
-            border: 2px solid #333; /* Darker border for depth */
+            background-color: rgba(10, 15, 36, 0.6);
+            border: 2px solid #1a365d; /* Dark blue border */
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-            /* Soft transition effect for a surprise when you hover! */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            /* Smooth transition for the hover glow */
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* HOVER SURPRISE: Makes the panel glow when you point your mouse at it */
+        /* HOVER SURPRISE: Hologram Glow */
         .section-panel:hover {
-            box-shadow: 0 0 25px rgba(255, 204, 0, 0.4);
-            border-color: #ffcc00;
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
+            border-color: #00f3ff;
         }
 
         h2 {
-            color: #ffcc00; /* Bat Yellow */
+            color: #00f3ff;
             font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 0;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #1a365d;
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
-        /* Lists and Paragraphs inside panels */
+        h3 {
+            color: #8bb1d6;
+            margin-bottom: 5px;
+        }
+
         ul {
             padding-left: 25px;
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         strong {
-            color: #ffffff; /* Make bold text pop on dark backgrounds */
+            color: #ffffff;
             font-weight: bolder;
         }
 
-        /* THE FOOTER (Terminal ID) */
+        /* Image Control for Certificates */
+        img {
+            width: 250px;
+            border-radius: 8px;
+            border: 2px solid #00f3ff;
+            margin-top: 15px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            display: block; /* Ensures the image sits nicely on its own line */
+        }
+
+        /* THE FOOTER (Telemetry Data) */
         footer {
             text-align: center;
             font-size: 0.9em;
-            color: #333;
+            color: #8bb1d6;
             margin-top: 50px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -107,32 +148,41 @@
 
     <div class="main-container">
 
-        <!-- HEADER BANNER: GOTHAM'S TERMINAL -->
+        <!-- HEADER BANNER -->
         <div class="terminal-header">
-            <h1>THE BATMAN's CAVE </h1>
+            <h1>THE BATMAN'S CAVE</h1>
+        </div>
+
+        <!-- NAVIGATION MENU (Category Buttons) -->
+        <div class="nav-menu">
+            <a href="#persona" class="nav-button">THE PERSONA</a>
+            <a href="#arsenal" class="nav-button">THE ARSENAL</a>
+            <a href="#case-files" class="nav-button">THE CASE FILES</a>
         </div>
 
         <!-- 1. SECTION: THE PERSONA (About Me) -->
         <div class="section-panel" id="persona">
             <h2>THE PERSONA: </h2>
             <p>HI , My name is MUHAMMAD USMAN aka BATMAN .</p>
-            <p>I'm a 15 year old who's mind is full of new inventions idea.</p>
+            <p>I'm a 15 year old-Sophomore , whos living in ksa and roots from PAK.</p>
         </div>
 
         <!-- 2. SECTION: THE ARSENAL (Capabilities / Interests) -->
         <div class="section-panel" id="arsenal">
             <h2>THE ARSENAL: CAPABILITIES & INTERESTS </h2>
+            
             <h3>CAPABILITIES</h3>
-            <p>Good at leading groups </p> 
-            <p>Good at reserach </p> 
+            <p>Good at leading groups</p>
+             <p>Good at reserach </p>
             <h3>INTERESTS</h3>
             <ul>
+                <li>ARCHITECTURE</li>
                 <li>WEB DEV</li>
                 <li>GAME DEV</li>
-                <li>MECCHATRONICS</li>
+                <li>PROGRAMMING</li>
+                <li>MECHATRONICS</li>
                 <li>ROCKET ENGINEER</li>
-                <li>ARCHITECTURE</li>
-                </ul>    
+            </ul>
         </div>
 
         <!-- 3. SECTION: THE CASE FILES (Projects) -->
@@ -140,15 +190,15 @@
             <h2>THE CASE FILES: RECENT INITIATIVES</h2>
             <p>Ongoing operations and certificates :</p>
             <ul>
-                <li><strong>PROJECT: </strong> <h3>THE BATMAN's CAVE</h3> MY PERSONAL WEB [its my first project :)] </li>
-                <li><strong>CERTIFICATES: <h3>VIBE CODER </h3> </strong>  <img src="https://cdn.qwiklabs.com/w08Qy7b1VOOPaieflHPtrilBC6kuMyrY9Vvs2BbZndE%3D" alt=" my certificates " width=" 200"></imghttps:> </li>
-                
+                <li><strong>PROJECT:</strong> <h3>THE BATMAN'S CAVE</h3> MY PERSONAL WEB [its my first project :)] </li>
+                <li><strong>CERTIFICATES:</strong> 
+                    <h3>NASA OPEN SCIENCE </h3>
+                    <img src="usman.png" alt="NASA's cert">
+                     <h3>VIBE CODER </h3> 
+                    <img src="usman (2).png" alt="Vibe Coder Certificate">
+                </li>
             </ul>
         </div>
-
-        <!-- TERMINAL ID FOOTER -->
-        <footer>TERMINAL ID: BC-ALPHA-1 // Status: OPERATIONAL</footer>
-
     </div>
 
 </body>
